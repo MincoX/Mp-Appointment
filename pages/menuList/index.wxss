@@ -1,0 +1,8 @@
+.menu-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-item {
+  margin: 15px;
+}

@@ -1,0 +1,53 @@
+.table {
+  margin-top: 3px;
+  border: 0px solid darkgray;
+}
+
+.tr {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 5px;
+  align-items: center;
+  border-bottom-style: solid;
+}
+
+.th {
+  width: 40%;
+  justify-content: center;
+  background: rgb(6, 109, 3);
+  color: #fff;
+  display: flex;
+  height: 3rem;
+  align-items: center;
+}
+
+.td {
+  width: 40%;
+  justify-content: center;
+  text-align: center;
+}
+
+
+.avater {
+  width: 50px;
+  height: 50px;
+}
+
+
+.swiper-tab{
+  width: 100%;
+  text-align: center;
+  line-height: 80rpx;}
+.swiper-tab-list{  font-size: 30rpx;
+  display: inline-block;
+  width: 33.33%;
+  color: #777777;
+}
+.on{ color: blue;
+  border-bottom: 3rpx solid blue;}
+
+.swiper-box{ display: block; height: 100%; width: 100%; overflow: hidden; }
+.swiper-box view{
+  text-align: center;
+}

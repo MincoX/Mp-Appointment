@@ -1,0 +1,12 @@
+<view class="container">
+
+  <view class="introduce">
+    MincoX 科技
+  </view>
+
+  <view class="authorization">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" type="primary" bindgetuserinfo="getUserInfo">
+      微信登录 </button>
+  </view>
+
+</view>

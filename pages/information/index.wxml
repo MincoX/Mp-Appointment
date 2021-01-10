@@ -1,0 +1,45 @@
+<view class='content'>
+  <view class='nav'>
+    <view class='top'>
+      <image class="avater" src="{{facePath}}"></image>
+    </view>
+    <view class='nickname'>
+      <button bindtap='chooseImageTap' class="mini-btn upload-btn" type="default" size="mini">拍照选取照片上传</button>
+    </view>
+  </view>
+  <view class='item'>
+    <text class='left'>姓名：</text>
+    <input class="weui-input right" model:value="{{name}}" focus="true" bindblur="checkName"
+      placeholder="请填写您的姓名" />
+  </view>
+  <view class='item'>
+    <text class='left'>性别：</text>
+    <radio-group bindchange="radioChange">
+      <label>
+        <radio value="0" checked="true" />男</label>
+      <label>
+        <radio value="1" />女</label>
+    </radio-group>
+  </view>
+  <view class='item' bindtap='setemail'>
+    <text class='left'>邮箱：</text><input bindblur="checkEmail" class="weui-input right" model:value="{{mail}}"
+      placeholder="请填写您的邮箱" />
+  </view>
+  <view class='item'>
+    <text class='left'>手机号：</text><input type="number" maxlength="11" bindblur="checkPhoneNum" class="weui-input right"
+      model:value="{{phoneNum}}" placeholder="请填写您的手机号" />
+  </view>
+  <view class='item'>
+    <text class='left'>身份证号：</text><input class="weui-input right" bindblur="checkIdNum" maxlength="18" model:value="{{idNum}}" placeholder="请输入您的身份证号码" />
+  </view>
+  <view class='item'>
+    <text class='left'>访问日期：</text>
+    <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange"
+      value="{{multiIndex}}" range="{{multiArray}}">
+      <input model:value="{{applyDate}}" placeholder='选择日期' />
+    </picker>
+  </view>
+  <button type="primary" bindtap="submitApply">提交</button>
+  <navigator class="admin-entrance" url="/pages/login/index" open-type="redirect">管理员入口</navigator>
+
+</view>

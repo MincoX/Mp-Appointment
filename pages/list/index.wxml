@@ -1,0 +1,89 @@
+<view class="swiper-tab">
+  <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">申请列表</view>
+  <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">成功列表</view>
+  <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">失败列表</view>
+</view>
+
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px"
+  bindchange="bindChange">
+
+  <swiper-item>
+    <view class="table">
+      <view class="tr">
+        <view class="th">图像</view>
+        <view class="th">姓名</view>
+        <view class="th">性别</view>
+        <view class="th">访问日期</view>
+        <view class="th">操作</view>
+      </view>
+
+      <view>
+        <view class="tr" wx:for="{{userList}}" wx:for-index="index" wx:for-item="item">
+          <view class="td">
+            <image class="avater" src="{{baseApi + '/' + item.face_path}}"></image>
+          </view>
+          <view class="td">{{item.real_name}}</view>
+          <view class="td" wx:if="{{item.gender==0}}">男</view>
+          <view class="td" wx:else>女</view>
+          <view class="td">{{item.apply_date}}</view>
+          <view class="td">
+            <view class="button-sp-area">
+              <button class="mini-btn" type="primary" size="mini" data-item="{{item}}" data-operate="1" bindtap="auditUser">通过</button>
+              <button class="mini-btn" type="warn" size="mini" data-item="{{item}}" data-operate="2" bindtap="auditUser">拒绝</button>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </swiper-item>
+
+  <swiper-item>
+    <view class="table">
+      <view class="tr">
+        <view class="th">图像</view>
+        <view class="th">姓名</view>
+        <view class="th">性别</view>
+        <view class="th">访问日期</view>
+      </view>
+
+      <view>
+        <view class="tr" wx:for="{{userList}}" wx:for-index="index" wx:for-item="item">
+          <view class="td">
+            <image class="avater" src="{{baseApi + '/' + item.face_path}}"></image>
+          </view>
+          <view class="td">{{item.real_name}}</view>
+          <view class="td" wx:if="{{item.gender==0}}">男</view>
+          <view class="td" wx:else>女</view>
+          <view class="td">{{item.apply_date}}</view>
+        </view>
+      </view>
+    </view>
+  </swiper-item>
+
+  <swiper-item>
+    <view class="table">
+      <view class="tr">
+        <view class="th">图像</view>
+        <view class="th">姓名</view>
+        <view class="th">重试次数</view>
+        <view class="th">失败原因</view>
+      </view>
+
+      <view>
+        <view class="tr" wx:for="{{userList}}" wx:for-index="index" wx:for-item="item">
+          <view class="td">
+            <image class="avater" src="{{baseApi + '/' + item.face_path}}"></image>
+          </view>
+          <view class="td">{{item.real_name}}</view>
+          <view class="td">{{item.retry_count}}</view>
+          <view class="td">
+            <view class="button-sp-area">
+              {{item.fail_reason}}
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </swiper-item>
+
+</swiper>
