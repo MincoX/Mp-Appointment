@@ -9,8 +9,7 @@
   </view>
   <view class='item'>
     <text class='left'>姓名：</text>
-    <input class="weui-input right" model:value="{{name}}" focus="true" bindblur="checkName"
-      placeholder="请填写您的姓名" />
+    <input class="weui-input right" model:value="{{name}}" focus="true" bindblur="checkName" placeholder="请填写您的姓名" />
   </view>
   <view class='item'>
     <text class='left'>性别：</text>
@@ -30,9 +29,6 @@
       model:value="{{phoneNum}}" placeholder="请填写您的手机号" />
   </view>
   <view class='item'>
-    <text class='left'>身份证号：</text><input class="weui-input right" bindblur="checkIdNum" maxlength="18" model:value="{{idNum}}" placeholder="请输入您的身份证号码" />
-  </view>
-  <view class='item'>
     <text class='left'>访问日期：</text>
     <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange"
       value="{{multiIndex}}" range="{{multiArray}}">
@@ -40,6 +36,7 @@
     </picker>
   </view>
   <button type="primary" bindtap="submitApply">提交</button>
-  <navigator class="admin-entrance" url="/pages/login/index" open-type="redirect">管理员入口</navigator>
-
+  <view class="admin-entrance">
+    <navigator url="/pages/login/index" open-type="redirect">管理员入口</navigator>
+  </view>
 </view>

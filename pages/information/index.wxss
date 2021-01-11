@@ -45,10 +45,14 @@ input {
   border: 1px solid white;
 }
 
+
 .admin-entrance {
-  margin-top: 15px;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
 }
+
 .picker {
   font-size: 16px;
 }

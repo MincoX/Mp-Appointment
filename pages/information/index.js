@@ -32,7 +32,6 @@ Page({
     gender: 0,
     mail: '',
     phoneNum: '',
-    idNum: '666888666888666888',
     chooseYear: '',
     faceUploaded: false,
     multiIndex: [0, 9, 16, 10, 17],
@@ -201,7 +200,6 @@ Page({
     var name = this.data.name
     var mail = this.data.mail
     var phoneNum = this.data.phoneNum
-    var idNum = this.data.idNum
     var applyDate = this.data.applyDate
 
     if (!this.data.faceUploaded) {
@@ -214,7 +212,7 @@ Page({
       return false
     }
 
-    if (name == "" || mail == "" || phoneNum == "" || idNum == "" || applyDate == "") {
+    if (name == "" || mail == "" || phoneNum == "" || applyDate == "") {
 
       wx.showToast({
         mask: true,
@@ -229,7 +227,6 @@ Page({
         gender: this.data.gender,
         mail: mail,
         phoneNum: phoneNum,
-        idNum: idNum,
         applyDate: applyDate,
       }, {
         'method': 'post'

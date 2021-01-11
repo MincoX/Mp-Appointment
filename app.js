@@ -27,15 +27,10 @@ App({
           request.fetch(Api.getSession, {
             code: res.code
           }).then(res => {
-            if (res.data.env == 'dev') {
-              Store.setItem('openId', res.data.openid)
-              wx.redirectTo({
-                url: "/pages/menuList/index"
-              })
-            } else {
-              Store.setItem('openId', res.data.openid)
-            }
-
+            Store.setItem('openId', res.data.openid)
+            wx.redirectTo({
+              url: "/pages/authorization/index"
+            })
           }).catch(err => {
             wx.showToast({
               mask: true,

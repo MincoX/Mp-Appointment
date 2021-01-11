@@ -1,9 +1,7 @@
 {
   "pages": [
     "pages/authorization/index",
-    "pages/menuList/index",
     "pages/information/index",
-    
     "pages/list/index",
     "pages/login/index",
     "pages/logs/logs"
