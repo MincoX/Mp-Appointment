@@ -28,9 +28,6 @@ App({
             code: res.code
           }).then(res => {
             Store.setItem('openId', res.data.openid)
-            wx.redirectTo({
-              url: "/pages/authorization/index"
-            })
           }).catch(err => {
             wx.showToast({
               mask: true,
