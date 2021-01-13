@@ -46,6 +46,16 @@ Page({
   },
 
   chooseImageTap: function () {
+
+    if (store.getItem('aduit') == false) {
+      wx.showToast({
+        mask: true,
+        title: '无须上传图片',
+        icon: 'none'
+      })
+      return
+    }
+
     var that = this;
     wx.showActionSheet({
       itemList: ['从相册中选择', '拍照'],
@@ -201,6 +211,15 @@ Page({
     var mail = this.data.mail
     var phoneNum = this.data.phoneNum
     var applyDate = this.data.applyDate
+
+    if (store.getItem('aduit') == false) {
+      wx.showToast({
+        mask: true,
+        title: '恭喜你，申请成功',
+        icon: 'none'
+      })
+      return
+    }
 
     if (!this.data.faceUploaded) {
       wx.showToast({
