@@ -47,15 +47,6 @@ Page({
 
   chooseImageTap: function () {
 
-    if (store.getItem('aduit') == false) {
-      wx.showToast({
-        mask: true,
-        title: '无须上传图片',
-        icon: 'none'
-      })
-      return
-    }
-
     var that = this;
     wx.showActionSheet({
       itemList: ['从相册中选择', '拍照'],
@@ -179,31 +170,6 @@ Page({
       return false
     }
   },
-  loginBtnClick: function () {
-
-    if (this.data.name.length == 0 || this.data.phone.length == 0) {
-
-      this.setData({
-
-        infoMess: '温馨提示：用户名和密码不能为空！',
-
-      })
-
-    } else {
-
-      this.setData({
-
-        infoMess: '',
-
-        name: '用户名：' + this.data.userN,
-
-        phone: '密码：' + this.data.passW
-
-      })
-
-    }
-
-  },
 
   submitApply: function () {
     var that = this
@@ -211,15 +177,6 @@ Page({
     var mail = this.data.mail
     var phoneNum = this.data.phoneNum
     var applyDate = this.data.applyDate
-
-    if (store.getItem('aduit') == false) {
-      wx.showToast({
-        mask: true,
-        title: '恭喜你，申请成功',
-        icon: 'none'
-      })
-      return
-    }
 
     if (!this.data.faceUploaded) {
       wx.showToast({
@@ -254,11 +211,13 @@ Page({
           mask: true,
           title: res.msg,
           icon: 'none',
-          duration: 2000,
+          duration: 1500,
           success: function () {
             setTimeout(function () {
-              that.onLoad()
-            }, 2000)
+              wx.redirectTo({
+                url: '/pages/list/index',
+              })
+            }, 1500)
           }
         })
       }).catch(err => {

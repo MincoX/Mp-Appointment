@@ -28,11 +28,6 @@ App({
             code: res.code
           }).then(res => {
             Store.setItem('openId', res.data.openid)
-            if (res.data.env == 'dev') {
-              Store.setItem('aduit', false)
-            } else {
-              Store.setItem('aduit', true)
-            }
           }).catch(err => {
             wx.showToast({
               mask: true,
@@ -45,7 +40,9 @@ App({
       }
     })
   },
+
   globalData: {
-    userInfo: null
+    userInfo: null,
+    login: false,
   }
 })

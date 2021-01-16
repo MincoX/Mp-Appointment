@@ -35,19 +35,190 @@
 }
 
 
-.swiper-tab{
+.swiper-tab {
   width: 100%;
   text-align: center;
-  line-height: 80rpx;}
-.swiper-tab-list{  font-size: 30rpx;
+  line-height: 80rpx;
+}
+
+.swiper-tab-list {
+  font-size: 30rpx;
   display: inline-block;
-  width: 33.33%;
+  width: 25%;
   color: #777777;
 }
-.on{ color: blue;
-  border-bottom: 3rpx solid blue;}
 
-.swiper-box{ display: block; height: 100%; width: 100%; overflow: hidden; }
-.swiper-box view{
+.on {
+  color: blue;
+  border-bottom: 3rpx solid blue;
+}
+
+.swiper-box {
+  display: block;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.swiper-box view {
   text-align: center;
+}
+
+.info-box {
+  width: 80%;
+}
+
+.avatar-img {
+  width: 100px;
+  height: 100px;
+  border: 1px solid gray;
+}
+
+.info-box>text {
+  display: block;
+  margin-left: -20%;
+  margin-top: 4%;
+}
+
+.wx-login-btn {
+  margin-top: 50px;
+}
+
+
+/* pages/myinfo/myinfo.wxss */
+.nav {
+  background-color: #fff;
+}
+
+.top {
+  width: 300rpx;
+  height: 300rpx;
+  margin: 0 auto;
+}
+
+image {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+
+.nickname {
+  margin-bottom: 10rpx;
+  text-align: center;
+}
+
+.item {
+  height: 70rpx;
+  background-color: #fff;
+  margin: 20rpx;
+  display: flex;
+  border-radius: 20rpx;
+  border: 1px solid gray;
+  width: 95%;
+  line-height: 70rpx;
+}
+
+.left {
+  float: left;
+  width: 30%;
+  text-align: center;
+  border-right: 1px solid gray;
+}
+
+.right {
+  width: 70%;
+  text-align: center;
+  color: black;
+}
+
+.error {
+  color: rgb(255, 0, 0);
+}
+
+.warn {
+  color: rgb(255, 255, 0);
+}
+
+.safe {
+  color: rgb(0, 128, 0);
+}
+
+.headView {
+
+  margin: 90rpx 50rpx 90rpx 50rpx;
+  /*上右下左*/
+
+}
+
+.headImageView {
+
+  display: block;
+
+  margin-left: 25px;
+
+  margin-top: 25px;
+
+  margin-right: 25px;
+
+  margin-bottom: 0px;
+
+  height: 50px;
+
+}
+
+.headImage {
+
+  display: flex;
+
+  width: 50px;
+
+  height: 50px;
+
+}
+
+.titleText {
+
+  margin-left: 25px;
+
+  margin-top: 25px;
+
+  margin-bottom: 10px;
+
+  font-size: 14px;
+
+  color: #020e0f;
+
+  text-align: center;
+
+}
+
+.contentText {
+
+  margin-left: 25px;
+
+  margin-top: 0px;
+
+  margin-bottom: 0px;
+
+  font-size: 14px;
+
+  color: #666;
+
+  text-align: center;
+
+}
+
+.authBtn {
+
+  margin-top: 35px;
+
+  margin-left: 25px;
+
+  margin-right: 25px;
+
+  height: 45px;
+
+  font-size: 17.5px;
+
 }

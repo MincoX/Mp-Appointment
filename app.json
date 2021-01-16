@@ -1,9 +1,8 @@
 {
   "pages": [
-    "pages/authorization/index",
-    "pages/information/index",
+    "pages/index/index",
     "pages/list/index",
-    "pages/login/index",
+    "pages/information/index",
     "pages/logs/logs"
   ],
   "window": {

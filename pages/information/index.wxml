@@ -36,7 +36,5 @@
     </picker>
   </view>
   <button type="primary" bindtap="submitApply">提交</button>
-  <view class="admin-entrance">
-    <navigator url="/pages/login/index" open-type="redirect">管理员入口</navigator>
-  </view>
+  
 </view>

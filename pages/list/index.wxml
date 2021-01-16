@@ -1,7 +1,8 @@
 <view class="swiper-tab">
-  <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">申请列表</view>
+  <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">预约用户</view>
   <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">成功列表</view>
   <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">失败列表</view>
+  <view class="swiper-tab-list {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav">个人中心</view>
 </view>
 
 <swiper current="{{currentTab}}" class="swiper-box" duration="300" style="height:{{winHeight - 31}}px"
@@ -28,8 +29,10 @@
           <view class="td">{{item.apply_date}}</view>
           <view class="td">
             <view class="button-sp-area">
-              <button class="mini-btn" type="primary" size="mini" data-item="{{item}}" data-operate="1" bindtap="auditUser">通过</button>
-              <button class="mini-btn" type="warn" size="mini" data-item="{{item}}" data-operate="2" bindtap="auditUser">拒绝</button>
+              <button class="mini-btn" type="primary" size="mini" data-item="{{item}}" data-operate="1"
+                bindtap="auditUser">通过</button>
+              <button class="mini-btn" type="warn" size="mini" data-item="{{item}}" data-operate="2"
+                bindtap="auditUser">拒绝</button>
             </view>
           </view>
         </view>
@@ -84,6 +87,71 @@
         </view>
       </view>
     </view>
+  </swiper-item>
+
+  <swiper-item>
+    <view hidden="{{login}}">
+      <view wx:if="{{canIUse}}">
+          <view class='headView'>
+              <view class='titleText'>申请获取以下权限</view>
+              <view class='contentText'>获得你的公开信息(昵称,头像,手机等)</view>
+              <button class='authBtn' type='primary' open-type='getUserInfo' bindgetuserinfo='getUserInfo'>授权登录</button>
+            </view>
+      </view>
+      <view wx:else>请升级微信版本</view>
+    </view>
+
+    <view class='content' hidden="{{!login}}">
+
+      <view class='nav'>
+        <view class='top'>
+
+          <block wx:if="{{appoint == -1 || appoint == null}}">
+            <open-data type="userAvatarUrl"></open-data>
+          </block>
+
+          <block wx:else>
+            <image src="{{ baseApi + '/' + userInfo.face_path }}"></image>
+          </block>
+
+        </view>
+      </view>
+
+      <view class='item'>
+        <text class='left'>昵称</text>
+        <open-data class='right' type="userNickName"></open-data>
+      </view>
+
+      <view class='item'>
+        <text class='left'>预约状态</text>
+        <navigator wx:if="{{appoint == -1 || appoint == null}}" class="right"
+          url="/pages/information/index" hover-class="navigator-hover">
+          您还未预约，点击立即预约
+        </navigator>
+        <text wx:else class="right">
+          <text class="warn" wx:if="{{appoint == 0}}">正在审核</text>
+          <text class="safe" wx:if="{{appoint == 1}}">审核通过</text>
+          <text class="error" wx:if="{{appoint == 2}}">审核失败</text>
+        </text>
+      </view>
+
+      <view wx:if="{{appoint != -1 && appoint != null}}">
+        <view class='item'>
+          <text class='left'>姓名</text><text class='right'>{{userInfo.real_name}}</text>
+        </view>
+
+        <view class='item'>
+          <text class='left'>邮箱</text><text class='right'>{{userInfo.email}}</text>
+        </view>
+        <view class='item' bindtap='resetpwd'>
+          <text class='left'>手机号</text><text class='right'>{{userInfo.phone}}</text>
+        </view>
+        <view class='item' bindtap='exit'>
+          <text class='left'>预约日期</text><text class='right'>{{userInfo.apply_date}}</text>
+        </view>
+      </view>
+    </view>
+
   </swiper-item>
 
 </swiper>

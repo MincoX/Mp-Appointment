@@ -1,0 +1,8 @@
+<view class="index2Container">
+  <image class="avatar" src="/assets/images/loginBg.jpg"></image>
+  <text class="username">欢迎光临，MincoX 预约平台</text>
+  <navigator url="/pages/list/index" hover-class="navigator-hover">
+    
+    <button type="primary" bindtap="submitApply">前往预约</button>
+  </navigator>
+</view>
